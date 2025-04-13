@@ -35,6 +35,13 @@
 		603D4D032DA9159300CE4B8C /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 603D4CE72DA9159300CE4B8C /* OpenSans-Medium.ttf */; };
 		603D4D0F2DA9193800CE4B8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603D4D0E2DA9193800CE4B8C /* LaunchScreen.storyboard */; };
 		603D4D142DA919AB00CE4B8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 603D4D122DA919AB00CE4B8C /* Localizable.strings */; };
+		603D4D192DA92FF600CE4B8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 603D4D182DA92FF600CE4B8C /* GoogleService-Info.plist */; };
+		603D4D1E2DA9594D00CE4B8C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D1D2DA9594D00CE4B8C /* Constants.swift */; };
+		603D4D262DA961C100CE4B8C /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603D4D252DA961C100CE4B8C /* Splash.storyboard */; };
+		603D4D282DA9620000CE4B8C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D272DA9620000CE4B8C /* SplashViewController.swift */; };
+		603D4D2A2DA9621D00CE4B8C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D292DA9621D00CE4B8C /* BaseViewController.swift */; };
+		603D4D2F2DAA685900CE4B8C /* DefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D2E2DAA685900CE4B8C /* DefaultStorage.swift */; };
+		603D4D312DAA68F100CE4B8C /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D302DAA68F100CE4B8C /* NotificationsManager.swift */; };
 		B6BAB7B6A9B153B68E925CB2 /* Pods_YappingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65EE3EA71724EBB238CA598 /* Pods_YappingApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +78,13 @@
 		603D4D132DA919AB00CE4B8C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		603D4D152DA919B900CE4B8C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		603D4D162DA919C400CE4B8C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		603D4D172DA91C5A00CE4B8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		603D4D182DA92FF600CE4B8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		603D4D1D2DA9594D00CE4B8C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		603D4D252DA961C100CE4B8C /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		603D4D272DA9620000CE4B8C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		603D4D292DA9621D00CE4B8C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		603D4D2E2DAA685900CE4B8C /* DefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorage.swift; sourceTree = "<group>"; };
+		603D4D302DAA68F100CE4B8C /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		686C136D7EFA79471711DF7B /* Pods-YappingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappingApp.debug.xcconfig"; path = "Target Support Files/Pods-YappingApp/Pods-YappingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B65EE3EA71724EBB238CA598 /* Pods_YappingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13C130F32E99B3794CDB1C9 /* Pods-YappingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappingApp.release.xcconfig"; path = "Target Support Files/Pods-YappingApp/Pods-YappingApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,7 +116,6 @@
 				686C136D7EFA79471711DF7B /* Pods-YappingApp.debug.xcconfig */,
 				F13C130F32E99B3794CDB1C9 /* Pods-YappingApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,20 +140,15 @@
 		603D4CD42DA9103700CE4B8C /* YappingApp */ = {
 			isa = PBXGroup;
 			children = (
+				603D4D232DA9611400CE4B8C /* Screens */,
+				603D4D212DA9610600CE4B8C /* Helper */,
+				603D4D1B2DA9592000CE4B8C /* Common */,
 				603D4CD62DA910FD00CE4B8C /* AppDelegate */,
 				603D4D042DA9159F00CE4B8C /* Resoucre */,
-				603D4CD52DA9107400CE4B8C /* Common */,
 				603D4CCD2DA90F5900CE4B8C /* Info.plist */,
-				603D4D172DA91C5A00CE4B8C /* GoogleService-Info.plist */,
+				603D4D182DA92FF600CE4B8C /* GoogleService-Info.plist */,
 			);
 			path = YappingApp;
-			sourceTree = "<group>";
-		};
-		603D4CD52DA9107400CE4B8C /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		603D4CD62DA910FD00CE4B8C /* AppDelegate */ = {
@@ -192,6 +199,73 @@
 				603D4D122DA919AB00CE4B8C /* Localizable.strings */,
 			);
 			path = Resoucre;
+			sourceTree = "<group>";
+		};
+		603D4D1B2DA9592000CE4B8C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				603D4D1D2DA9594D00CE4B8C /* Constants.swift */,
+				603D4D292DA9621D00CE4B8C /* BaseViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		603D4D212DA9610600CE4B8C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				603D4D2D2DAA682400CE4B8C /* Notifiacation */,
+				603D4D2C2DAA681700CE4B8C /* Manager */,
+				603D4D2B2DAA680D00CE4B8C /* Storage */,
+				603D4D222DA9610B00CE4B8C /* Extensions */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		603D4D222DA9610B00CE4B8C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		603D4D232DA9611400CE4B8C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				603D4D242DA9611800CE4B8C /* SplashView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		603D4D242DA9611800CE4B8C /* SplashView */ = {
+			isa = PBXGroup;
+			children = (
+				603D4D252DA961C100CE4B8C /* Splash.storyboard */,
+				603D4D272DA9620000CE4B8C /* SplashViewController.swift */,
+			);
+			path = SplashView;
+			sourceTree = "<group>";
+		};
+		603D4D2B2DAA680D00CE4B8C /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				603D4D2E2DAA685900CE4B8C /* DefaultStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		603D4D2C2DAA681700CE4B8C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				603D4D302DAA68F100CE4B8C /* NotificationsManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		603D4D2D2DAA682400CE4B8C /* Notifiacation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifiacation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +338,8 @@
 				603D4CF22DA9159300CE4B8C /* Pacifico-Regular.ttf in Resources */,
 				603D4CF32DA9159300CE4B8C /* NunitoSans_10pt-Medium.ttf in Resources */,
 				603D4CF42DA9159300CE4B8C /* Inter-Bold.ttf in Resources */,
+				603D4D262DA961C100CE4B8C /* Splash.storyboard in Resources */,
+				603D4D192DA92FF600CE4B8C /* GoogleService-Info.plist in Resources */,
 				603D4CF52DA9159300CE4B8C /* NunitoSans_10pt-Regular.ttf in Resources */,
 				603D4CF62DA9159300CE4B8C /* OpenSans-SemiBold.ttf in Resources */,
 				603D4D0F2DA9193800CE4B8C /* LaunchScreen.storyboard in Resources */,
@@ -336,7 +412,12 @@
 			files = (
 				603D4CC72DA90F5800CE4B8C /* YappingApp.xcdatamodeld in Sources */,
 				603D4CBD2DA90F5800CE4B8C /* AppDelegate.swift in Sources */,
+				603D4D312DAA68F100CE4B8C /* NotificationsManager.swift in Sources */,
+				603D4D2F2DAA685900CE4B8C /* DefaultStorage.swift in Sources */,
 				603D4CBF2DA90F5800CE4B8C /* SceneDelegate.swift in Sources */,
+				603D4D1E2DA9594D00CE4B8C /* Constants.swift in Sources */,
+				603D4D282DA9620000CE4B8C /* SplashViewController.swift in Sources */,
+				603D4D2A2DA9621D00CE4B8C /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +457,7 @@
 				INFOPLIST_FILE = YappingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -404,7 +485,7 @@
 				INFOPLIST_FILE = YappingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -458,7 +539,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -523,7 +604,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
