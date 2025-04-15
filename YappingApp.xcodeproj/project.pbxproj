@@ -42,6 +42,10 @@
 		603D4D2A2DA9621D00CE4B8C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D292DA9621D00CE4B8C /* BaseViewController.swift */; };
 		603D4D2F2DAA685900CE4B8C /* DefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D2E2DAA685900CE4B8C /* DefaultStorage.swift */; };
 		603D4D312DAA68F100CE4B8C /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D302DAA68F100CE4B8C /* NotificationsManager.swift */; };
+		6060EB472DAE9CF0008E7EDF /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060EB462DAE9CF0008E7EDF /* Localized.swift */; };
+		60B307C12DAE49F100570E79 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B307C02DAE49F100570E79 /* UIViewController.swift */; };
+		60B307CA2DAE5DFB00570E79 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B307C92DAE5DFB00570E79 /* MenuView.xib */; };
+		60B307CB2DAE5DFB00570E79 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B307C82DAE5DFB00570E79 /* MenuView.swift */; };
 		B6BAB7B6A9B153B68E925CB2 /* Pods_YappingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65EE3EA71724EBB238CA598 /* Pods_YappingApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +89,10 @@
 		603D4D292DA9621D00CE4B8C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		603D4D2E2DAA685900CE4B8C /* DefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorage.swift; sourceTree = "<group>"; };
 		603D4D302DAA68F100CE4B8C /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		6060EB462DAE9CF0008E7EDF /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		60B307C02DAE49F100570E79 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		60B307C82DAE5DFB00570E79 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		60B307C92DAE5DFB00570E79 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		686C136D7EFA79471711DF7B /* Pods-YappingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappingApp.debug.xcconfig"; path = "Target Support Files/Pods-YappingApp/Pods-YappingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B65EE3EA71724EBB238CA598 /* Pods_YappingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YappingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13C130F32E99B3794CDB1C9 /* Pods-YappingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YappingApp.release.xcconfig"; path = "Target Support Files/Pods-YappingApp/Pods-YappingApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +212,7 @@
 		603D4D1B2DA9592000CE4B8C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				60B307C22DAE5D9900570E79 /* Views */,
 				603D4D1D2DA9594D00CE4B8C /* Constants.swift */,
 				603D4D292DA9621D00CE4B8C /* BaseViewController.swift */,
 			);
@@ -224,6 +233,8 @@
 		603D4D222DA9610B00CE4B8C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				60B307C02DAE49F100570E79 /* UIViewController.swift */,
+				6060EB462DAE9CF0008E7EDF /* Localized.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,6 +277,23 @@
 			children = (
 			);
 			path = Notifiacation;
+			sourceTree = "<group>";
+		};
+		60B307C22DAE5D9900570E79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				60B307C32DAE5DA800570E79 /* MenuView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		60B307C32DAE5DA800570E79 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				60B307C82DAE5DFB00570E79 /* MenuView.swift */,
+				60B307C92DAE5DFB00570E79 /* MenuView.xib */,
+			);
+			path = MenuView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +368,7 @@
 				603D4CF42DA9159300CE4B8C /* Inter-Bold.ttf in Resources */,
 				603D4D262DA961C100CE4B8C /* Splash.storyboard in Resources */,
 				603D4D192DA92FF600CE4B8C /* GoogleService-Info.plist in Resources */,
+				60B307CA2DAE5DFB00570E79 /* MenuView.xib in Resources */,
 				603D4CF52DA9159300CE4B8C /* NunitoSans_10pt-Regular.ttf in Resources */,
 				603D4CF62DA9159300CE4B8C /* OpenSans-SemiBold.ttf in Resources */,
 				603D4D0F2DA9193800CE4B8C /* LaunchScreen.storyboard in Resources */,
@@ -412,8 +441,11 @@
 			files = (
 				603D4CC72DA90F5800CE4B8C /* YappingApp.xcdatamodeld in Sources */,
 				603D4CBD2DA90F5800CE4B8C /* AppDelegate.swift in Sources */,
+				60B307C12DAE49F100570E79 /* UIViewController.swift in Sources */,
 				603D4D312DAA68F100CE4B8C /* NotificationsManager.swift in Sources */,
+				6060EB472DAE9CF0008E7EDF /* Localized.swift in Sources */,
 				603D4D2F2DAA685900CE4B8C /* DefaultStorage.swift in Sources */,
+				60B307CB2DAE5DFB00570E79 /* MenuView.swift in Sources */,
 				603D4CBF2DA90F5800CE4B8C /* SceneDelegate.swift in Sources */,
 				603D4D1E2DA9594D00CE4B8C /* Constants.swift in Sources */,
 				603D4D282DA9620000CE4B8C /* SplashViewController.swift in Sources */,
