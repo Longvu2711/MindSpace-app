@@ -59,16 +59,15 @@ class MenuView: UIView {
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    self.layer.cornerRadius = 18
+    self.layer.cornerRadius = 16
     self.clipsToBounds = true
   }
   
   private func setupUI() {
     self.clipsToBounds = true
-    self.layer.cornerRadius = 18
+    self.layer.cornerRadius = 16
     loadView()
-    
-    
+  
     homeLabel.text = "home".localized()
     folderLabel.text = "folder".localized()
     imageLabel.text = "image".localized()

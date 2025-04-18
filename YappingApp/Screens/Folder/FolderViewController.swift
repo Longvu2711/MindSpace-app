@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FolderViewController: UIViewController {
+class FolderViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
