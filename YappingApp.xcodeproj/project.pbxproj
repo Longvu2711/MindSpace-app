@@ -56,6 +56,8 @@
 		6060EB6B2DAEDBE0008E7EDF /* BlankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060EB6A2DAEDBE0008E7EDF /* BlankViewModel.swift */; };
 		6060EB6E2DAEDBEB008E7EDF /* BlankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060EB6C2DAEDBEB008E7EDF /* BlankViewController.swift */; };
 		6060EB6F2DAEDBEB008E7EDF /* BlankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6060EB6D2DAEDBEB008E7EDF /* BlankViewController.xib */; };
+		6060EB732DB2C795008E7EDF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060EB712DB2C795008E7EDF /* ImageCell.swift */; };
+		6060EB742DB2C795008E7EDF /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6060EB722DB2C795008E7EDF /* ImageCell.xib */; };
 		60B307C12DAE49F100570E79 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B307C02DAE49F100570E79 /* UIViewController.swift */; };
 		60B307CA2DAE5DFB00570E79 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B307C92DAE5DFB00570E79 /* MenuView.xib */; };
 		60B307CB2DAE5DFB00570E79 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B307C82DAE5DFB00570E79 /* MenuView.swift */; };
@@ -116,6 +118,8 @@
 		6060EB6A2DAEDBE0008E7EDF /* BlankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewModel.swift; sourceTree = "<group>"; };
 		6060EB6C2DAEDBEB008E7EDF /* BlankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		6060EB6D2DAEDBEB008E7EDF /* BlankViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlankViewController.xib; sourceTree = "<group>"; };
+		6060EB712DB2C795008E7EDF /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		6060EB722DB2C795008E7EDF /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		60B307C02DAE49F100570E79 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		60B307C82DAE5DFB00570E79 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		60B307C92DAE5DFB00570E79 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 		603D4D1B2DA9592000CE4B8C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6060EB702DB2C745008E7EDF /* Cell */,
 				60B307C22DAE5D9900570E79 /* Views */,
 				603D4D1D2DA9594D00CE4B8C /* Constants.swift */,
 				603D4D292DA9621D00CE4B8C /* BaseViewController.swift */,
@@ -382,6 +387,15 @@
 			path = BlankViewController;
 			sourceTree = "<group>";
 		};
+		6060EB702DB2C745008E7EDF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6060EB712DB2C795008E7EDF /* ImageCell.swift */,
+				6060EB722DB2C795008E7EDF /* ImageCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		60B307C22DAE5D9900570E79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +499,7 @@
 				603D4CF82DA9159300CE4B8C /* Nunito-Medium.ttf in Resources */,
 				603D4CF92DA9159300CE4B8C /* OpenSans-Bold.ttf in Resources */,
 				603D4CFA2DA9159300CE4B8C /* Nunito-Regular.ttf in Resources */,
+				6060EB742DB2C795008E7EDF /* ImageCell.xib in Resources */,
 				603D4CFB2DA9159300CE4B8C /* NunitoSans_10pt-SemiBold.ttf in Resources */,
 				603D4CFC2DA9159300CE4B8C /* OpenSans-Regular.ttf in Resources */,
 				6060EB512DAEDAEF008E7EDF /* HomeViewController.xib in Resources */,
@@ -551,6 +566,7 @@
 				6060EB602DAEDB3C008E7EDF /* FolderViewController.swift in Sources */,
 				603D4CC72DA90F5800CE4B8C /* YappingApp.xcdatamodeld in Sources */,
 				603D4CBD2DA90F5800CE4B8C /* AppDelegate.swift in Sources */,
+				6060EB732DB2C795008E7EDF /* ImageCell.swift in Sources */,
 				60B307C12DAE49F100570E79 /* UIViewController.swift in Sources */,
 				6060EB6B2DAEDBE0008E7EDF /* BlankViewModel.swift in Sources */,
 				6060EB542DAEDB15008E7EDF /* SettingViewController.swift in Sources */,
