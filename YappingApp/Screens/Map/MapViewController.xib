@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,16 +19,43 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTl-7L-2kd">
-                    <rect key="frame" x="175" y="416" width="34" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCZ-9Q-tNV">
+                    <rect key="frame" x="6" y="65" width="381" height="747"/>
+                    <subviews>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRu-LD-w9f">
+                            <rect key="frame" x="0.0" y="60" width="381" height="687"/>
+                            <standardMapConfiguration key="preferredConfiguration"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="16"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </mapView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="iRu-LD-w9f" firstAttribute="top" secondItem="kCZ-9Q-tNV" secondAttribute="top" constant="60" id="6rf-0r-9Bh"/>
+                        <constraint firstAttribute="trailing" secondItem="iRu-LD-w9f" secondAttribute="trailing" id="CkW-YU-snk"/>
+                        <constraint firstAttribute="bottom" secondItem="iRu-LD-w9f" secondAttribute="bottom" id="g75-5s-mI0"/>
+                        <constraint firstItem="iRu-LD-w9f" firstAttribute="leading" secondItem="kCZ-9Q-tNV" secondAttribute="leading" id="iOI-A3-h0u"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kCZ-9Q-tNV" secondAttribute="trailing" constant="6" id="2Cp-KO-JPP"/>
+                <constraint firstItem="kCZ-9Q-tNV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="6" id="RmB-2a-EVt"/>
+                <constraint firstItem="kCZ-9Q-tNV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="6" id="W4f-An-R2w"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kCZ-9Q-tNV" secondAttribute="bottom" constant="6" id="xdg-Nz-zrK"/>
+            </constraints>
             <point key="canvasLocation" x="-10" y="20"/>
         </view>
     </objects>

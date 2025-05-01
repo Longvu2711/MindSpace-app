@@ -71,7 +71,7 @@ class MenuView: UIView {
     homeLabel.text = "home".localized()
     folderLabel.text = "folder".localized()
     imageLabel.text = "image".localized()
-    globeLabel.text = "image".localized()
+    globeLabel.text = "map".localized()
     settingLabel.text = "setting".localized()
     
     let labels = [homeLabel, folderLabel, imageLabel, globeLabel ,settingLabel]

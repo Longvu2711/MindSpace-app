@@ -38,13 +38,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgV-xF-fcR">
                                 <rect key="frame" x="0.0" y="108" width="150" height="42"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now: 600 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpc-4M-InR">
-                                        <rect key="frame" x="8" y="7" width="100" height="10"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpc-4M-InR">
+                                        <rect key="frame" x="8" y="14.333333333333329" width="100" height="13.333333333333336"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="VLF-zs-TtA"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                        <color key="textColor" systemColor="scrollViewTexturedBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ic_go" translatesAutoresizingMaskIntoConstraints="NO" id="ATk-yd-Xqb">
@@ -54,22 +53,10 @@
                                             <constraint firstAttribute="height" constant="16" id="OMM-Bu-XWA"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chG-FF-H91">
-                                        <rect key="frame" x="8" y="19" width="71" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="71" id="TIV-bU-YO3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="chG-FF-H91" firstAttribute="top" secondItem="Rpc-4M-InR" secondAttribute="bottom" constant="2" id="0wN-TX-q7p"/>
-                                    <constraint firstAttribute="bottom" secondItem="chG-FF-H91" secondAttribute="bottom" constant="9" id="BeV-2i-eOa"/>
-                                    <constraint firstItem="chG-FF-H91" firstAttribute="leading" secondItem="fgV-xF-fcR" secondAttribute="leading" constant="8" id="NBR-Z6-kS8"/>
-                                    <constraint firstItem="chG-FF-H91" firstAttribute="top" secondItem="Rpc-4M-InR" secondAttribute="bottom" constant="2" id="Vbs-kH-XOF"/>
+                                    <constraint firstItem="Rpc-4M-InR" firstAttribute="centerY" secondItem="fgV-xF-fcR" secondAttribute="centerY" id="5Nc-3p-ogs"/>
                                     <constraint firstAttribute="height" constant="42" id="ZTf-XZ-LJb"/>
                                     <constraint firstAttribute="bottom" secondItem="ATk-yd-Xqb" secondAttribute="bottom" constant="13" id="cvi-33-vl2"/>
                                     <constraint firstItem="Rpc-4M-InR" firstAttribute="leading" secondItem="fgV-xF-fcR" secondAttribute="leading" constant="8" id="hhy-cv-7vr"/>
@@ -101,14 +88,17 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="302" height="769"/>
+            <connections>
+                <outlet property="imageView" destination="aiq-jy-i8f" id="Ita-aL-F9X"/>
+                <outlet property="infoView" destination="fgV-xF-fcR" id="vY3-5C-G35"/>
+                <outlet property="originSize" destination="Rpc-4M-InR" id="qdI-20-Drr"/>
+                <outlet property="videoLength" destination="ugg-T9-gfc" id="vgA-II-wAd"/>
+            </connections>
             <point key="canvasLocation" x="167.93893129770993" y="-41.901408450704224"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="ic_go" width="32" height="32"/>
-        <systemColor name="scrollViewTexturedBackgroundColor">
-            <color red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

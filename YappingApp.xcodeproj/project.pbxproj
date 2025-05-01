@@ -58,6 +58,7 @@
 		6060EB6F2DAEDBEB008E7EDF /* BlankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6060EB6D2DAEDBEB008E7EDF /* BlankViewController.xib */; };
 		6060EB732DB2C795008E7EDF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060EB712DB2C795008E7EDF /* ImageCell.swift */; };
 		6060EB742DB2C795008E7EDF /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6060EB722DB2C795008E7EDF /* ImageCell.xib */; };
+		60697DE32DC3E9C000AF2601 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60697DE22DC3E9C000AF2601 /* LoadingView.swift */; };
 		60B307C12DAE49F100570E79 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B307C02DAE49F100570E79 /* UIViewController.swift */; };
 		60B307CA2DAE5DFB00570E79 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60B307C92DAE5DFB00570E79 /* MenuView.xib */; };
 		60B307CB2DAE5DFB00570E79 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B307C82DAE5DFB00570E79 /* MenuView.swift */; };
@@ -120,6 +121,7 @@
 		6060EB6D2DAEDBEB008E7EDF /* BlankViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlankViewController.xib; sourceTree = "<group>"; };
 		6060EB712DB2C795008E7EDF /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		6060EB722DB2C795008E7EDF /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		60697DE22DC3E9C000AF2601 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		60B307C02DAE49F100570E79 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		60B307C82DAE5DFB00570E79 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		60B307C92DAE5DFB00570E79 /* MenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				60B307C02DAE49F100570E79 /* UIViewController.swift */,
 				6060EB462DAE9CF0008E7EDF /* Localized + UIViewRadius.swift */,
+				60697DE22DC3E9C000AF2601 /* LoadingView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				6060EB6E2DAEDBEB008E7EDF /* BlankViewController.swift in Sources */,
 				6060EB5C2DAEDB2C008E7EDF /* ImageViewController.swift in Sources */,
 				60B307CB2DAE5DFB00570E79 /* MenuView.swift in Sources */,
+				60697DE32DC3E9C000AF2601 /* LoadingView.swift in Sources */,
 				603D4CBF2DA90F5800CE4B8C /* SceneDelegate.swift in Sources */,
 				603D4D1E2DA9594D00CE4B8C /* Constants.swift in Sources */,
 				603D4D282DA9620000CE4B8C /* SplashViewController.swift in Sources */,
