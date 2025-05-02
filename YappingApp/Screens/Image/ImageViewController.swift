@@ -10,29 +10,72 @@ import Photos
 
 class ImageViewController: BaseViewController {
   
+  // MARK: - Outlets
   @IBOutlet weak var collectionView: UICollectionView!
+  
+  // MARK: - Properties
   private var imageAssets: [PHAsset] = []
-  private var isSetupDone = false
+  private let cellIdentifier = "ImageCell"
+  private let spacing: CGFloat = 20
+  
+  // MARK: - Lifecycle Methods
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupCollectionView()
+    fetchAssets()
+  }
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    if !isSetupDone {
-      isSetupDone = true
-      setupCollectionView()
-      fetchAssets()
-    }
+    setupCollectionLayout()
   }
   
+  // MARK: - Setup Methods
   private func setupCollectionView() {
-    collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "ImageCell")
+    collectionView.register(UINib(nibName: cellIdentifier, bundle: nil),
+                            forCellWithReuseIdentifier: cellIdentifier)
     collectionView.dataSource = self
     collectionView.delegate = self
+    collectionView.contentInset = UIEdgeInsets(top: spacing,
+                                               left: spacing,
+                                               bottom: spacing,
+                                               right: spacing)
   }
-
-  private func fetchAssets() {
-    self.showLoading()
+  
+  private func setupCollectionLayout() {
+    let layout = UICollectionViewFlowLayout()
+    let numberOfColumns = getNumberOfColumns()
+    let cellWidth = calculateCellWidth(numberOfColumns: numberOfColumns)
     
-    PHPhotoLibrary.requestAuthorization { status in
+    layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+    layout.minimumInteritemSpacing = spacing
+    layout.minimumLineSpacing = spacing
+    
+    collectionView.collectionViewLayout = layout
+  }
+  
+  // MARK: - Helper Methods
+  private func getNumberOfColumns() -> CGFloat {
+    return UIDevice.current.userInterfaceIdiom == .pad ? 4 : 2
+  }
+  
+  private func calculateCellWidth(numberOfColumns: CGFloat) -> CGFloat {
+    let totalSpacing = spacing * (numberOfColumns + 1)
+    return (collectionView.bounds.width - totalSpacing) / numberOfColumns
+  }
+  
+  private func getTargetSize(for width: CGFloat) -> CGSize {
+    let scale = UIScreen.main.scale
+    return CGSize(width: width * scale, height: width * scale)
+  }
+  
+  // MARK: - Data Methods
+  private func fetchAssets() {
+    showLoading()
+    
+    PHPhotoLibrary.requestAuthorization { [weak self] status in
+      guard let self = self else { return }
+      
       guard status == .authorized || status == .limited else {
         DispatchQueue.main.async {
           self.hideLoading()
@@ -60,56 +103,55 @@ class ImageViewController: BaseViewController {
   }
 }
 
-
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension ImageViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return imageAssets.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageCell else {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ImageCell else {
       return UICollectionViewCell()
     }
     
     let asset = imageAssets[indexPath.item]
-    let manager = PHImageManager.default()
-    let options = PHImageRequestOptions()
-    options.deliveryMode = .fastFormat
-    options.resizeMode = .fast
-    options.isSynchronous = false
-    
-    manager.requestImage(for: asset, targetSize: CGSize(width: 150, height: 150), contentMode: .aspectFill, options: options) { image, _ in
-      cell.imageView.image = image
-      cell.videoLength.isHidden = (asset.mediaType != .video)
-      if asset.mediaType == .video {
-        let duration = Int(asset.duration)
-        let minutes = duration / 60
-        let seconds = duration % 60
-        cell.videoLength.text = String(format: "%02d:%02d", minutes, seconds)
-      }
-    }
+    configureCell(cell, with: asset)
     
     return cell
   }
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let padding: CGFloat = 10
-    let itemsPerRow: CGFloat = 3
-    let totalPadding = padding * (itemsPerRow + 1)
-    let itemWidth = (collectionView.bounds.width - totalPadding) / itemsPerRow
-    return CGSize(width: itemWidth, height: itemWidth)
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 10
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return 10
+  private func configureCell(_ cell: ImageCell, with asset: PHAsset) {
+    let manager = PHImageManager.default()
+    let options = PHImageRequestOptions()
+    options.isSynchronous = false
+    options.deliveryMode = .highQualityFormat
+    
+    let numberOfColumns = getNumberOfColumns()
+    let cellWidth = calculateCellWidth(numberOfColumns: numberOfColumns)
+    let targetSize = getTargetSize(for: cellWidth)
+    
+    manager.requestImage(for: asset,
+                         targetSize: targetSize,
+                         contentMode: .aspectFill,
+                         options: options) { [weak self] image, _ in
+      guard self != nil else { return }
+      
+      let duration = asset.mediaType == .video ?
+      String(format: "%02d:%02d", Int(asset.duration) / 60, Int(asset.duration) % 60) : ""
+      
+      let resource = PHAssetResource.assetResources(for: asset).first
+      let size = resource?.value(forKey: "fileSize") as? Int64 ?? 0
+      
+      let info = AssetInfo(
+        thumnail: image,
+        size: Double(size),
+        lenght: duration,
+        url: URL(fileURLWithPath: ""),
+        creationDate: asset.creationDate ?? Date(),
+        asset: asset
+      )
+      
+      cell.configure(with: info)
+    }
   }
 }

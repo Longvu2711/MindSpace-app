@@ -24,6 +24,15 @@ struct VideoInfo {
   let length: String
 }
 
+struct AssetInfo {
+  let thumnail: UIImage?
+  let size: Double
+  let lenght: String
+  let url: URL
+  let creationDate: Date
+  let asset: PHAsset
+}
+
 class ImageCell: UICollectionViewCell {
 
   @IBOutlet weak var videoLength: UILabel!
@@ -31,10 +40,35 @@ class ImageCell: UICollectionViewCell {
   @IBOutlet weak var originSize: UILabel!
   @IBOutlet weak var infoView: UIView!
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    setupUI()
+  }
+  
+  private func setupUI() {
+    setupShadow()
+    setupInfoView()
+    setupImageView()
+  }
+  
+  private func setupShadow() {
+    layer.shadowColor = UIColor.black.cgColor
+    layer.shadowOpacity = 0.3
+    layer.shadowOffset = CGSize(width: 0, height: 4)
+    layer.shadowRadius = 6
+    layer.masksToBounds = false
+  }
+  
+  private func setupInfoView() {
+    infoView.layer.cornerRadius = 16
+    infoView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    infoView.layer.masksToBounds = true
+  }
+  
+  private func setupImageView() {
+    imageView.contentMode = .scaleAspectFill
+    imageView.clipsToBounds = true
+  }
   
   func configure(with image: ImageInfo) {
     imageView.image = image.thumbnail
@@ -48,6 +82,14 @@ class ImageCell: UICollectionViewCell {
     videoLength.text = video.length
     videoLength.isHidden = false
     originSize.text = ByteCountFormatter.string(fromByteCount: Int64(video.size), countStyle: .file)
+    infoView.isHidden = false
+  }
+  
+  func configure(with asset: AssetInfo) {
+    imageView.image = asset.thumnail
+    videoLength.text = asset.lenght
+    videoLength.isHidden = asset.lenght.isEmpty
+    originSize.text = ByteCountFormatter.string(fromByteCount: Int64(asset.size), countStyle: .file)
     infoView.isHidden = false
   }
   

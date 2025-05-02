@@ -18,6 +18,11 @@ class BlankViewController: BaseViewController {
   private let settingViewController = SettingViewController()
   private let mapViewController = MapViewController()
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.setNavigationBarHidden(true, animated: false)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     menuView.menuDelegate = self
