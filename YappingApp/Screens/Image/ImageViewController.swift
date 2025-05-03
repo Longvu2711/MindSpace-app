@@ -17,8 +17,9 @@ class ImageViewController: BaseViewController {
   private var imageAssets: [PHAsset] = []
   private let cellIdentifier = "ImageCell"
   private let spacing: CGFloat = 20
+  private let columns: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 2
   
-  // MARK: - Lifecycle Methods
+  // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     setupCollectionView()
@@ -30,56 +31,39 @@ class ImageViewController: BaseViewController {
     setupCollectionLayout()
   }
   
-  // MARK: - Setup Methods
+  // MARK: - Setup
   private func setupCollectionView() {
-    collectionView.register(UINib(nibName: cellIdentifier, bundle: nil),
-                            forCellWithReuseIdentifier: cellIdentifier)
+    collectionView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
     collectionView.dataSource = self
     collectionView.delegate = self
-    collectionView.contentInset = UIEdgeInsets(top: spacing,
-                                               left: spacing,
-                                               bottom: spacing,
-                                               right: spacing)
   }
   
   private func setupCollectionLayout() {
     let layout = UICollectionViewFlowLayout()
-    let numberOfColumns = getNumberOfColumns()
-    let cellWidth = calculateCellWidth(numberOfColumns: numberOfColumns)
+    let totalSpacing = spacing * (columns + 1)
+    let cellWidth = (collectionView.bounds.width - totalSpacing) / columns
     
     layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
-    layout.minimumInteritemSpacing = spacing
     layout.minimumLineSpacing = spacing
-    
+    layout.minimumInteritemSpacing = spacing
+    collectionView.contentInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
     collectionView.collectionViewLayout = layout
   }
   
-  // MARK: - Helper Methods
-  private func getNumberOfColumns() -> CGFloat {
-    return UIDevice.current.userInterfaceIdiom == .pad ? 4 : 2
-  }
-  
-  private func calculateCellWidth(numberOfColumns: CGFloat) -> CGFloat {
-    let totalSpacing = spacing * (numberOfColumns + 1)
-    return (collectionView.bounds.width - totalSpacing) / numberOfColumns
-  }
-  
-  private func getTargetSize(for width: CGFloat) -> CGSize {
+  private func calculateTargetSize() -> CGSize {
     let scale = UIScreen.main.scale
-    return CGSize(width: width * scale, height: width * scale)
+    let totalSpacing = spacing * (columns + 1)
+    let cellWidth = (collectionView.bounds.width - totalSpacing) / columns
+    return CGSize(width: cellWidth * scale, height: cellWidth * scale)
   }
   
-  // MARK: - Data Methods
+  // MARK: - Data
   private func fetchAssets() {
     showLoading()
-    
     PHPhotoLibrary.requestAuthorization { [weak self] status in
       guard let self = self else { return }
-      
       guard status == .authorized || status == .limited else {
-        DispatchQueue.main.async {
-          self.hideLoading()
-        }
+        DispatchQueue.main.async { self.hideLoading() }
         return
       }
       
@@ -126,16 +110,9 @@ extension ImageViewController: UICollectionViewDataSource, UICollectionViewDeleg
     options.isSynchronous = false
     options.deliveryMode = .highQualityFormat
     
-    let numberOfColumns = getNumberOfColumns()
-    let cellWidth = calculateCellWidth(numberOfColumns: numberOfColumns)
-    let targetSize = getTargetSize(for: cellWidth)
+    let targetSize = calculateTargetSize()
     
-    manager.requestImage(for: asset,
-                         targetSize: targetSize,
-                         contentMode: .aspectFill,
-                         options: options) { [weak self] image, _ in
-      guard self != nil else { return }
-      
+    manager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: options) { image, _ in
       let duration = asset.mediaType == .video ?
       String(format: "%02d:%02d", Int(asset.duration) / 60, Int(asset.duration) % 60) : ""
       

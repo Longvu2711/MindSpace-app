@@ -35,6 +35,8 @@ struct AssetInfo {
 
 class ImageCell: UICollectionViewCell {
 
+  @IBOutlet weak var cellView: UIView!
+  
   @IBOutlet weak var videoLength: UILabel!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var originSize: UILabel!
@@ -49,6 +51,13 @@ class ImageCell: UICollectionViewCell {
     setupShadow()
     setupInfoView()
     setupImageView()
+    cellView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      cellView.topAnchor.constraint(equalTo: contentView.topAnchor),
+      cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+      cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+      cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+    ])
   }
   
   private func setupShadow() {

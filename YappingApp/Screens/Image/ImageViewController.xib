@@ -33,14 +33,19 @@
                             </collectionViewFlowLayout>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="16"/>
+                                </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </collectionView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="8Ju-7t-VZ9" firstAttribute="top" secondItem="vFl-Yg-wUm" secondAttribute="top" id="30h-Vb-j34"/>
+                        <constraint firstItem="8Ju-7t-VZ9" firstAttribute="centerX" secondItem="vFl-Yg-wUm" secondAttribute="centerX" id="KhF-ze-h2E"/>
                         <constraint firstItem="8Ju-7t-VZ9" firstAttribute="leading" secondItem="vFl-Yg-wUm" secondAttribute="leading" id="KkL-Zi-9Ly"/>
                         <constraint firstAttribute="bottom" secondItem="8Ju-7t-VZ9" secondAttribute="bottom" id="Wjm-3v-Ast"/>
+                        <constraint firstItem="8Ju-7t-VZ9" firstAttribute="centerY" secondItem="vFl-Yg-wUm" secondAttribute="centerY" id="eFd-9X-W4I"/>
                         <constraint firstAttribute="trailing" secondItem="8Ju-7t-VZ9" secondAttribute="trailing" id="npj-KR-SqM"/>
                     </constraints>
                 </view>

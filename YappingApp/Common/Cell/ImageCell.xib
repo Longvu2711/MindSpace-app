@@ -89,6 +89,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="302" height="769"/>
             <connections>
+                <outlet property="cellView" destination="ewe-sr-pWR" id="wTH-PP-tpA"/>
                 <outlet property="imageView" destination="aiq-jy-i8f" id="Ita-aL-F9X"/>
                 <outlet property="infoView" destination="fgV-xF-fcR" id="vY3-5C-G35"/>
                 <outlet property="originSize" destination="Rpc-4M-InR" id="qdI-20-Drr"/>
