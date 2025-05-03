@@ -24,3 +24,16 @@ extension UIStoryboard {
     return controller
   }
 }
+
+extension UIView {
+  var parentViewController: UIViewController? {
+    var parentResponder: UIResponder? = self
+    while let responder = parentResponder {
+      parentResponder = responder.next
+      if let viewController = responder as? UIViewController {
+        return viewController
+      }
+    }
+    return nil
+  }
+}

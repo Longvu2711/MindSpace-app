@@ -16,8 +16,8 @@ class ImageViewController: BaseViewController {
   // MARK: - Properties
   private var imageAssets: [PHAsset] = []
   private let cellIdentifier = "ImageCell"
-  private let spacing: CGFloat = 20
-  private let columns: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 2
+  private let spacing: CGFloat = 5
+  private let columns: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 5 : 3
   
   // MARK: - Lifecycle
   override func viewDidLoad() {
@@ -105,11 +105,11 @@ extension ImageViewController: UICollectionViewDataSource, UICollectionViewDeleg
   }
   
   private func configureCell(_ cell: ImageCell, with asset: PHAsset) {
-    let manager = PHImageManager.default()
     let options = PHImageRequestOptions()
-    options.isSynchronous = false
-    options.deliveryMode = .highQualityFormat
-    
+    options.isNetworkAccessAllowed = false
+    options.deliveryMode = .opportunistic   
+    options.resizeMode = .fast
+    let manager = PHImageManager.default()
     let targetSize = calculateTargetSize()
     
     manager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: options) { image, _ in
