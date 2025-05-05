@@ -5,3 +5,11 @@
   Created by Long Vu on 11/4/25.
   
 */
+
+"home" = "Home";
+"folder" = "Folder";
+"map" = "Map";
+"image" = "Image";
+"setting" = "Setting";
+
+

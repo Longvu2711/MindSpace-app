@@ -41,6 +41,7 @@ class MenuView: UIView {
   @IBOutlet weak var globeImage: UIImageView!
   @IBOutlet weak var settingImage: UIImageView!
 
+  private var isInteractionEnabled = true
   private var selectedView: ViewMode = .home {
     didSet {
       freshUI()
@@ -101,16 +102,32 @@ class MenuView: UIView {
   }
 
   private func freshUI() {
-    let labels = [
-      (homeLabel, homeImage, ViewMode.home),
+    let labels: [(UILabel?, UIImageView?, ViewMode)] = [
+      (homeLabel, homeImage, .home),
       (folderLabel, folderImage, .folder),
-      (imageLabel, photoImage , .image),
-      (globeLabel, globeImage , .map) ,
+      (imageLabel, photoImage, .image),
+      (globeLabel, globeImage, .map),
       (settingLabel, settingImage, .setting)
     ]
+    
     for (label, image, mode) in labels {
-      label?.textColor = (mode == selectedView) ? UIColor.systemBlue : UIColor.gray
-      image?.tintColor = (mode == selectedView) ? UIColor.systemBlue : UIColor.gray
+      let isSelected = mode == selectedView
+      let color: UIColor = isSelected ? .systemBlue : .gray
+      let scale: CGFloat = isSelected ? 1.25 : 1.0
+      
+      UIView.animate(withDuration: 0.25) {
+        label?.textColor = color
+        image?.tintColor = color
+        label?.transform = CGAffineTransform(scaleX: scale, y: scale)
+        image?.transform = CGAffineTransform(scaleX: scale, y: scale)
+      }
+    }
+  }
+  
+  private func delayTap() {
+    isInteractionEnabled = false
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+      self.isInteractionEnabled = true
     }
   }
   
@@ -126,27 +143,38 @@ class MenuView: UIView {
   }
   
   @objc private func didTapHome() {
+    guard isInteractionEnabled else { return }
     selectedView = .home
     menuDelegate?.menuViewDidSelect(mode: .home)
+    delayTap()
   }
   
   @objc private func didTapFolder() {
+    guard isInteractionEnabled else { return }
     selectedView = .folder
     menuDelegate?.menuViewDidSelect(mode: .folder)
+    delayTap()
   }
   
   @objc private func didTapImage() {
+    guard isInteractionEnabled else { return }
     selectedView = .image
     menuDelegate?.menuViewDidSelect(mode: .image)
+    delayTap()
   }
   
   @objc private func didTapGlobe() {
+    guard isInteractionEnabled else { return }
     selectedView = .map
     menuDelegate?.menuViewDidSelect(mode: .map)
+    delayTap()
   }
+  
   @objc private func didTapSetting() {
+    guard isInteractionEnabled else { return }
     selectedView = .setting
     menuDelegate?.menuViewDidSelect(mode: .setting)
+    delayTap()
   }
 
   

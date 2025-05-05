@@ -8,13 +8,13 @@
 import UIKit
 import Photos
 
-class ImageViewController: BaseViewController {
+final class ImageViewController: BaseViewController {
   
   // MARK: - Outlets
   @IBOutlet weak var collectionView: UICollectionView!
   
   // MARK: - Properties
-  private var imageAssets: [PHAsset] = []
+  private let viewModel = ImageViewModel()
   private let cellIdentifier = "ImageCell"
   private let spacing: CGFloat = 5
   private let columns: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 5 : 3
@@ -23,7 +23,9 @@ class ImageViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupCollectionView()
-    fetchAssets()
+    bindViewModel()
+    showLoading()
+    viewModel.fetchAssets()
   }
   
   override func viewDidLayoutSubviews() {
@@ -57,64 +59,36 @@ class ImageViewController: BaseViewController {
     return CGSize(width: cellWidth * scale, height: cellWidth * scale)
   }
   
-  // MARK: - Data
-  private func fetchAssets() {
-    showLoading()
-    PHPhotoLibrary.requestAuthorization { [weak self] status in
-      guard let self = self else { return }
-      guard status == .authorized || status == .limited else {
-        DispatchQueue.main.async { self.hideLoading() }
-        return
-      }
-      
-      let fetchOptions = PHFetchOptions()
-      fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-      let fetchResult = PHAsset.fetchAssets(with: fetchOptions)
-      
-      var assets: [PHAsset] = []
-      fetchResult.enumerateObjects { asset, _, _ in
-        if asset.mediaType == .image || asset.mediaType == .video {
-          assets.append(asset)
-        }
-      }
-      
-      DispatchQueue.main.async {
-        self.imageAssets = assets
-        self.collectionView.reloadData()
-        self.hideLoading()
-      }
+  private func bindViewModel() {
+    viewModel.onAssetsUpdated = { [weak self] in
+      self?.collectionView.reloadData()
+      self?.hideLoading()
+    }
+    viewModel.onPermissionDenied = { [weak self] in
+      self?.hideLoading()
     }
   }
 }
 
-// MARK: - UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
-extension ImageViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+// MARK: - UICollectionViewDataSource
+extension ImageViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return imageAssets.count
+    return viewModel.numberOfAssets()
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ImageCell else {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ImageCell,
+          let asset = viewModel.asset(at: indexPath.item)
+    else {
       return UICollectionViewCell()
     }
     
-    let asset = imageAssets[indexPath.item]
-    configureCell(cell, with: asset)
-    
-    return cell
-  }
-  
-  private func configureCell(_ cell: ImageCell, with asset: PHAsset) {
-    let options = PHImageRequestOptions()
-    options.isNetworkAccessAllowed = false
-    options.deliveryMode = .opportunistic   
-    options.resizeMode = .fast
-    let manager = PHImageManager.default()
     let targetSize = calculateTargetSize()
     
-    manager.requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill, options: options) { image, _ in
-      let duration = asset.mediaType == .video ?
-      String(format: "%02d:%02d", Int(asset.duration) / 60, Int(asset.duration) % 60) : ""
+    viewModel.requestThumbnail(for: asset, targetSize: targetSize) { image in
+      let duration = asset.mediaType == .video
+      ? String(format: "%02d:%02d", Int(asset.duration) / 60, Int(asset.duration) % 60)
+      : ""
       
       let resource = PHAssetResource.assetResources(for: asset).first
       let size = resource?.value(forKey: "fileSize") as? Int64 ?? 0
@@ -128,7 +102,11 @@ extension ImageViewController: UICollectionViewDataSource, UICollectionViewDeleg
         asset: asset
       )
       
-      cell.configure(with: info)
+      DispatchQueue.main.async {
+        cell.configure(with: info)
+      }
     }
+    
+    return cell
   }
 }
