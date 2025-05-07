@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -54,7 +54,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="cell"/>
                                 <constraints>
                                     <constraint firstItem="Rpc-4M-InR" firstAttribute="centerY" secondItem="fgV-xF-fcR" secondAttribute="centerY" id="5Nc-3p-ogs"/>
                                     <constraint firstItem="ATk-yd-Xqb" firstAttribute="centerY" secondItem="fgV-xF-fcR" secondAttribute="centerY" id="MFe-o9-59d"/>
@@ -65,7 +65,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AWX-ve-NHN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="cell"/>
                         <constraints>
                             <constraint firstItem="ugg-T9-gfc" firstAttribute="top" secondItem="ewe-sr-pWR" secondAttribute="top" constant="9" id="2xN-Sg-pXf"/>
                             <constraint firstItem="aiq-jy-i8f" firstAttribute="leading" secondItem="ewe-sr-pWR" secondAttribute="leading" constant="2" id="6S4-g1-ckj"/>
@@ -99,8 +99,8 @@
     </objects>
     <resources>
         <image name="ic_go" width="32" height="32"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="cell">
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

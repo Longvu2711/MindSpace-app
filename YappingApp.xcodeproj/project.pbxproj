@@ -42,6 +42,7 @@
 		603D4D2A2DA9621D00CE4B8C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D292DA9621D00CE4B8C /* BaseViewController.swift */; };
 		603D4D2F2DAA685900CE4B8C /* DefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D2E2DAA685900CE4B8C /* DefaultStorage.swift */; };
 		603D4D312DAA68F100CE4B8C /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D4D302DAA68F100CE4B8C /* NotificationsManager.swift */; };
+		604E56B42DCB708B0067EDCE /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 604E56B32DCB708B0067EDCE /* Secrets.xcconfig */; };
 		6060EB472DAE9CF0008E7EDF /* Localized + UIViewRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060EB462DAE9CF0008E7EDF /* Localized + UIViewRadius.swift */; };
 		6060EB502DAEDAEF008E7EDF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060EB4E2DAEDAEF008E7EDF /* HomeViewController.swift */; };
 		6060EB512DAEDAEF008E7EDF /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6060EB4F2DAEDAEF008E7EDF /* HomeViewController.xib */; };
@@ -113,6 +114,8 @@
 		603D4D292DA9621D00CE4B8C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		603D4D2E2DAA685900CE4B8C /* DefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorage.swift; sourceTree = "<group>"; };
 		603D4D302DAA68F100CE4B8C /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		604E56B32DCB708B0067EDCE /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		604E56B52DCB71560067EDCE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		6060EB462DAE9CF0008E7EDF /* Localized + UIViewRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localized + UIViewRadius.swift"; sourceTree = "<group>"; };
 		6060EB4E2DAEDAEF008E7EDF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6060EB4F2DAEDAEF008E7EDF /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -178,6 +181,7 @@
 		603D4CB02DA90F5800CE4B8C = {
 			isa = PBXGroup;
 			children = (
+				604E56B52DCB71560067EDCE /* .gitignore */,
 				603D4CD42DA9103700CE4B8C /* YappingApp */,
 				603D4CBA2DA90F5800CE4B8C /* Products */,
 				51D7BF1ED54AEF967E0E6DC2 /* Pods */,
@@ -203,6 +207,7 @@
 				603D4D042DA9159F00CE4B8C /* Resoucre */,
 				603D4CCD2DA90F5900CE4B8C /* Info.plist */,
 				603D4D182DA92FF600CE4B8C /* GoogleService-Info.plist */,
+				604E56B32DCB708B0067EDCE /* Secrets.xcconfig */,
 			);
 			path = YappingApp;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				603D4CF42DA9159300CE4B8C /* Inter-Bold.ttf in Resources */,
 				603D4D262DA961C100CE4B8C /* Splash.storyboard in Resources */,
 				6060EB5D2DAEDB2C008E7EDF /* ImageViewController.xib in Resources */,
+				604E56B42DCB708B0067EDCE /* Secrets.xcconfig in Resources */,
 				603D4D192DA92FF600CE4B8C /* GoogleService-Info.plist in Resources */,
 				60B307CA2DAE5DFB00570E79 /* MenuView.xib in Resources */,
 				60697E042DC6768A00AF2601 /* SettingViewController.xib in Resources */,
@@ -711,7 +717,7 @@
 /* Begin XCBuildConfiguration section */
 		603D4CD02DA90F5900CE4B8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 686C136D7EFA79471711DF7B /* Pods-YappingApp.debug.xcconfig */;
+			baseConfigurationReference = 604E56B32DCB708B0067EDCE /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -740,7 +746,7 @@
 		};
 		603D4CD12DA90F5900CE4B8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F13C130F32E99B3794CDB1C9 /* Pods-YappingApp.release.xcconfig */;
+			baseConfigurationReference = 604E56B32DCB708B0067EDCE /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -769,6 +775,7 @@
 		};
 		603D4CD22DA90F5900CE4B8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 604E56B32DCB708B0067EDCE /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -834,6 +841,7 @@
 		};
 		603D4CD32DA90F5900CE4B8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 604E56B32DCB708B0067EDCE /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
