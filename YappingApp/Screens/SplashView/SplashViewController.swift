@@ -17,7 +17,7 @@ class SplashViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("ngu")
+    print("never say ...")
     startTimer()
   }
   
@@ -84,4 +84,5 @@ enum RootControllerPresenterAnimation {
         return 0.5
     }
   }
-  }
+  
+}
